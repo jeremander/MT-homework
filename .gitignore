@@ -1,1 +1,2 @@
-/aligner/*.pyc
+aligner/*.pyc
+aligner/*.pickle
