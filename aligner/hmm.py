@@ -300,7 +300,7 @@ def main():
     EM(pi, s, t, bitext, max_iterations = opts.iterations, verbose = True)
     cPickle.dump((pi, s, t), open("hmm_n%d_i%d.pickle" % (opts.num_sents, opts.iterations), 'wb'))
     for pair in bitext:
-        alignment = most_probable_alignment(pi, s, t, pair)
+        alignment = best_gamma_sequence(pi, s, t, pair)[3]
         for (i, j) in alignment:
             sys.stdout.write("%i-%i " % (i, j))
         sys.stdout.write("\n")
