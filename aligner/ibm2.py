@@ -133,9 +133,9 @@ def main():
             for j in xrange(le):
                 a[(j, le, lf)] = nltk.MutableProbDist(nltk.UniformProbDist(range(lf)), range(lf), False)
         a = nltk.DictionaryConditionalProbDist(a)
-        EM(t, a, bitext, max_iterations = opts.iterations, verbose = True)
-        cPickle.dump(t, open("ibm2_t_n%d_i%d.pickle" % (opts.num_sents, opts.iterations), 'wb'))
-        cPickle.dump(a, open("ibm2_a_n%d_i%d.pickle" % (opts.num_sents, opts.iterations), 'wb'))
+    EM(t, a, bitext, max_iterations = opts.iterations, verbose = True)
+    cPickle.dump(t, open("ibm2_t_n%d_i%d.pickle" % (opts.num_sents, opts.iterations), 'wb'))
+    cPickle.dump(a, open("ibm2_a_n%d_i%d.pickle" % (opts.num_sents, opts.iterations), 'wb'))
     for pair in bitext:
         alignment = most_probable_alignment(t, a, pair)
         for (i, j) in alignment:
