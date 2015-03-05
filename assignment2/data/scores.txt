@@ -1,0 +1,16 @@
+Reordering, no future cost estimation
+
+stack size      1000            10000
+r = 1:      -1436.360138    -1436.360138
+r = 2:      -1450.751917    -1424.593844
+r = 3:      -1489.173969    -1433.597484
+r = 4:      -1480.686967    -1443.113555
+r = 5:      -1448.787682    -1407.235425
+r = 6:      -1425.169420    -1383.444258
+r = 7:      -1391.640700    -1366.846222
+r = 8:      -1359.745736    -1342.382424
+r = 9:      -1352.177713    -1333.573665
+r = 10:     -1341.910770    -1327.718461
+
+
+Including a reordering limit seems to make the translations get lower scores at first, but then they get better as the reordering limit increases. Looking at the actual content of the translations, though, they don't necessarily get much better as the reordering limit increases.

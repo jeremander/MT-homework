@@ -1,0 +1,6 @@
+'decode2' is a revision of the 'decode' program for French to English decoding.
+In it I have introduced the reordering model discussed in the text.
+Changes from "decode" include:
+1) Each hypothesis contains a record of the foreign phrase indices already used.
+2) Instead of translating in a monotonic order, any foreign phrase can be chosen to be translated as long as its start index is within the reordering limit from the previous phrase's end index.
+3) An empty stack can occur if all remaining foreign phrases to choose from are outside the reordering limit from the previous phrase, for all hypotheses in the previous stack. This is problematic. So as a workaround, we just add the first translation option to the empty stack so that it won't be empty.
