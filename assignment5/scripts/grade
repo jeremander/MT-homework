@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Grader.
+
+usage: cat FORM_FILE | python grader GOLD_FORM_FILE
+"""
+
+import argparse
+import codecs
+import sys
+from itertools import izip
+
+PARSER = argparse.ArgumentParser(description="Count lemmas and word forms")
+PARSER.add_argument("-gold", type=str, default='data/dtest.form', help="gold file for word forms")
+args = PARSER.parse_args()
+
+sys.stdout = codecs.getwriter('utf-8')(sys.stdout) 
+sys.stdin = codecs.getreader('utf-8')(sys.stdin) 
+
+total = 0
+right = 0
+for line, gold in izip(sys.stdin, codecs.open(args.gold, 'r', 'utf-8')):
+    def equal(pair): return pair[0].lower() == pair[1].lower()
+    compared = map(equal, izip(line.split(), gold.split()))
+    right += sum(compared)
+    total += len(compared)
+
+print "%d / %d = %.2f" % (right, total, 1.0 * right / total)
+    
+
