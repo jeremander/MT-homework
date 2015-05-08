@@ -1,0 +1,22 @@
+
+INPUT ENGLISH SENTENCE
+I am late
+
+ENGLISH PARSE TREE
+SynTree(TP[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(DP[NUM='sg', PERSON=1, -TRACE], [SynTree(DBar[NUM='sg', PERSON=1, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=1, +PropN, -TRACE], [SynTree('I', [])])])]), SynTree(TBar[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(VP[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(VBar[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(V[NUM='sg', PERSON=1, SUBCAT='link', TENSE='pres'], [SynTree('am', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('late', [])])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(DP[NUM='sg', PERSON=1, -TRACE], [SynTree(DBar[NUM='sg', PERSON=1, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=1, +PropN, -TRACE], [SynTree('I', [])])])]), SynTree(PA[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(3, []), SynTree(TP[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(DP[NUM='sg', PERSON=1, +TRACE], [SynTree(t3, [])]), SynTree(TBar[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(VP[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(VBar[NUM='sg', PERSON=1, TENSE='pres'], [SynTree(V[NUM='sg', PERSON=1, SUBCAT='link', TENSE='pres'], [SynTree('am', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('late', [])])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+LATE(ME)
+
+NL LOGIC INTERPRETATION
+ME z8 . LATE(z8)
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'ME', [])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='link', TENSE=?t], [SynTree('BE', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'LATE', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+I am late
+

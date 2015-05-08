@@ -1,0 +1,118 @@
+HOLI QuaIl: Higher-Order Logic Interpreted Quantificational Interlingua
+
+- Syntax is essential to language.
+- Instead of trying to infer rules from a corpus, build them in from the beginning.
+- X-bar theory is very general framework for this, can apply cross-linguistically.
+- Quantification is essential to language. Determiners "a" and "the", demonstratives, numbers, "most", "only", etc.
+- These interact in a complex way with the modified noun phrases. I.e. they are not just ordinary adjectives.
+- "Every farmer has a donkey."
+- Different languages encode the same relations with different parts of speech. E.g. "like" (T.V. in English) vs. "suki" (adjective / adjectival noun in Japanese).
+
+Modules:
+- The Lexicon (part of speech, atomic semantic form)
+- Inflection tables
+- The CFG (unary/binary production rules)
+
+
+- The CFG
+
+Flowchart:
+1. Input sentence
+2. Surface structure (CFG parsing)                             Ambiguities: syntactic, POS
+3. Deep structure (movement, quantifier raising)               Ambiguities: syntactic, quantifier scope
+4. HOL interpretation (compositionality via FA, PM, PA)        Ambiguities: lexical (polysemy/homonymy)
+5. NL logic (HOL with NL quantifiers)                          Ambiguities: syntactic (term placement in restrictor vs. nucleus)
+6. Deep structure w/o morphology or surface forms              Ambiguities: none
+7. Surface structure (quantifier lowering, morphology)         Ambiguities: morphological (e.g. all vs. every) lexical (synonymy)
+8. Output sentence (read off leaves)                           Ambiguities: none
+
+1 -> 2: NLTK's chart parser pretty good. Includes feature variables, which allows for conditioning on features in order to combine. Can't infer null tokens, but there are probably ways to manipulate features to accommodate this. It will be necessary for relative clauses, raising & control, wh-movement, etc.
+2 -> 3: Extract all DPs from the sentence, put them at the beginning in any order (these are possible scope orders). Complication: QR can occur in non-sentence positions (see H & K), but that's pretty complicated.
+3 -> 4: Pretty straightforward. Just apply the rules of compositionality, from the bottom up. Give up if any subtree fails to interpret.
+4 -> 5: From HOL (with unambiguous quantifier ordering), extract NL quantifiers, including proper nouns. Order of the terms now starts to matter for generation. Conjunction of predicates can be tricky for existentially quantified expressions. E.g. exists x . FARMER(x) & HAPPY(x) could become SOME x | FARMER(x) . HAPPY(x), SOME x | HAPPY(x) . FARMER(x), SOME x . HAPPY(x) & FARMER(x), SOME x . FARMER(x) & HAPPY(x), SOME x | HAPPY(x) & FARMER(x) . , SOME x | FARMER(x) & HAPPY(x) . 
+Corresponds to:
+    A farmer is happy.
+    Some happy person is a farmer.
+    There is a happy farmer.
+    There is a farmer who is happy.
+    A happy farmer exists.
+    A farmer who is happy exists.
+I'd say the first and third are much likelier than the others, but the others are still logically equivalent. Currently my grammar can only handle the first one, which is the best translation anyway.
+This ambiguity is an argument in favor of skipping step 5 though. But may be trickier if quantification works very differently in a different language.
+5 -> 6: Certain logical expressions have known tree structure associated with them. Fill in predicates, proper nouns accordingly.
+6 -> 7: Lower quantified DPs to their bound traces, infer the correct morphology by lexical lookup & propagation of features (may have number ambiguity (can possibly be resolved, at least for the subject, by looking at input tree) and synonym ambiguity.
+7 -> 8: Trivial
+
+
+Possible improvements:
+- Don't yet have CPs, which allow for relative clauses or sentential complements. E.g. "the man who..." (former) or "I know that..." (latter.
+- Possessives, PPs, adverbs, conjunctions
+- May be able to skip step 4 and go from deep structure to NL logic by translating quantified expressions as they are?
+- Probabilistic parsing and generation so there's less exhausting
+- Right now can only handle complete sentences.
+
+Challenges:
+- Incorporate tense & aspect into the semantic representation (requires temporal logic, involves quantification over times).
+- Modals and conditionals (requires modal logic, involves quantification over possible worlds). 
+- Anaphora
+- Noncompositionality ("alleged murderer")
+
+Stats aid:
+- Word disambiguation
+- Phrase translations, in context.  (Database of noun phrases, verb phrases, etc., with likelihoods).
+
+Nice advantages:
+- Doubles as machine intelligence engine. Represent facts about the world in HOL. Can use automated theorem-proving & model-building to reason. Ultimately could resolve ambiguity probabilistically by attempting to verify potential sentences with knowledge base to see what is most consistent and/or informative.
+- Logical equivalence is a pretty good standard for translation accuracy.
+
+Beat syntax-based MT?
+- Sem. may not actually be necessary, if we skip step 4. But it does give the advantages above.
+- Seems to be pretty necessary for resolving the different POS in different languages issue. One language may express another language's VP as an AdjP, for instance. Would have to infer a syntactic rule specific to those words, which already is somewhat of a semantic notion. And it would probably fail if there are intervening modifiers. E.g. "is happy" -> "rejoices" in some other language. Could maybe learn this mapping, but would "is extremely happy" be able to translate to "rejoices greatly"? If so, would probably have to have learned the specific phrase "extremely happy". Data sparsity makes this unlikely.
+- At the very least, syntax needs to be very robust. Needs to include quantification and coreference.
+- Semantics will help with 
+- Rules built in, not learned.
+- KANT pg. 6 for examples where syntax-based MT probably won't work.
+
+Japanese idiosyncrasies:
+- Subjects optional. Leave them as free vars. Something must then bind the free var. If a topic is present, it is that. Otherwise, 1st person usually inferred, or last referred to individual. Could easily build that in so that "Mary ga suki desu" defaults to "I like Mary" instead of, a la Google Translate: "Mary is a favorite."
+- Topic should be outermost QP?
+
+
+
+
+Examples:
+Japanese:       John wa hashirimasu.
+English:        John runs.
+Google:         John runs.
+HOLI QuaIl:     John runs.
+
+Japanese:       John wa Mary wo mimashita.
+English:        John saw Mary.
+Google:         John saw Mary.
+HOLI QuaIl:     John saw Mary.
+
+Japanese:       John wa Mary ga suki desu.
+English:        John likes Mary.
+Google:         John Mary is like.
+HOLI QuaIl:     John likes Mary.
+
+Japanese:       Watashi wa okureteimasu.
+English:        I am late.
+Google:         I'm late.
+HOLI QuaIl:     I am late.
+
+Japanese:       Subete no nouka wa ureshii desu.
+English:        All farmers are happy.
+Google:         All farmers are happy.
+HOLI QuaIl:     Every farmer is happy / All farmers are happy.
+
+Japanese:       Subete no nouka wa roba wo motteimasu.
+English:        Every farmer has a donkey.
+Google:         All of the farmers have a donkey.
+HOLI QuaIl:     Every farmer has a donkey / All farmers have a donkey. (?)
+
+Japanese:       Subete no nigiyaka na nouka wa ureshikute genki na roba ga suki desu.
+English:        Every busy farmer likes a happy healthy donkey.
+Google:         All of the bustling farmers energetic ass is like to pleased.
+HOLI QuaIl:     
+

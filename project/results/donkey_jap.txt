@@ -1,0 +1,22 @@
+
+INPUT JAPANESE SENTENCE
+subete-no nouka wa roba wo motteimasu
+
+JAPANESE PARSE TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[-PropN, -TRACE], [SynTree('subete-no', [])]), SynTree(NP[], [SynTree(NBar[], [SynTree(N[], [SynTree('nouka', [])])])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(TP[TENSE='pres'], [SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(DP[PARTICLE='wo', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(NP[], [SynTree(NBar[], [SynTree(N[], [SynTree('roba', [])])])])])]), SynTree(Ptcl[PARTICLE='wo'], [SynTree('wo', [])])]), SynTree(V[SUBCAT='trans', TENSE='pres'], [SynTree('motteimasu', [])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[-PropN, -TRACE], [SynTree('subete-no', [])]), SynTree(NP[], [SynTree(NBar[], [SynTree(N[], [SynTree('nouka', [])])])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(PA[TENSE='pres'], [SynTree(10, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wo', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree([*type*='D', -PropN, -TRACE], [SynTree('*det*', [])]), SynTree(NP[], [SynTree(NBar[], [SynTree(N[], [SynTree('roba', [])])])])])]), SynTree(Ptcl[PARTICLE='wo'], [SynTree('wo', [])])]), SynTree(PA[TENSE='pres'], [SynTree(22, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', +TRACE], [SynTree(t10, [])]), SynTree(TP[TENSE='pres'], [SynTree(x33, []), SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(DP[PARTICLE='wo', +TRACE], [SynTree(t22, [])]), SynTree(V[SUBCAT='trans', TENSE='pres'], [SynTree('motteimasu', [])])])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+all x10.(FARMER(x10) -> exists x22.(DONKEY(x22) & HAVE(x22,x10)))
+
+NL LOGIC INTERPRETATION
+EVERY x10 | FARMER(x10) . (SOME x22 | DONKEY(x22) . HAVE(x22,x10))
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(DBar[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(D[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree('EVERY', [])]), SynTree(NP[NUM=?n], [SynTree(NBar[NUM=?n], [SynTree(N[NUM=?n], [SynTree(u'FARMER', [])])])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='trans', TENSE=?t], [SynTree(u'HAVE', [])]), SynTree(DP[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(DBar[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(D[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree('SOME', [])]), SynTree(NP[NUM=?n], [SynTree(NBar[NUM=?n], [SynTree(N[NUM=?n], [SynTree(u'DONKEY', [])])])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+every farmer has a donkey
+

@@ -1,0 +1,22 @@
+
+INPUT JAPANESE SENTENCE
+watashi wa Mary wo mimashita
+
+JAPANESE PARSE TREE
+SynTree(TP[TENSE='past'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('watashi', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(TP[TENSE='past'], [SynTree(TBar[TENSE='past'], [SynTree(VP[TENSE='past'], [SynTree(VBar[TENSE='past'], [SynTree(DP[PARTICLE='wo', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('Mary', [])])])]), SynTree(Ptcl[PARTICLE='wo'], [SynTree('wo', [])])]), SynTree(V[SUBCAT='trans', TENSE='past'], [SynTree('mimashita', [])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[TENSE='past'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('watashi', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(PA[TENSE='past'], [SynTree(6, []), SynTree(TP[TENSE='past'], [SynTree(DP[PARTICLE='wo', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('Mary', [])])])]), SynTree(Ptcl[PARTICLE='wo'], [SynTree('wo', [])])]), SynTree(PA[TENSE='past'], [SynTree(14, []), SynTree(TP[TENSE='past'], [SynTree(DP[PARTICLE='wa', +TRACE], [SynTree(t6, [])]), SynTree(TP[TENSE='past'], [SynTree(x25, []), SynTree(TBar[TENSE='past'], [SynTree(VP[TENSE='past'], [SynTree(VBar[TENSE='past'], [SynTree(DP[PARTICLE='wo', +TRACE], [SynTree(t14, [])]), SynTree(V[SUBCAT='trans', TENSE='past'], [SynTree('mimashita', [])])])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+SAW(MARY,ME)
+
+NL LOGIC INTERPRETATION
+ME z8 . (MARY z9 . SAW(z9,z8))
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'ME', [])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='trans', TENSE=?t], [SynTree(u'SAW', [])]), SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'MARY', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+I saw Mary
+

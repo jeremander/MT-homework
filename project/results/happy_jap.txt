@@ -1,0 +1,22 @@
+
+INPUT JAPANESE SENTENCE
+subete-no ureshii nouka wa nigiyaka desu
+
+JAPANESE PARSE TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[-PropN, -TRACE], [SynTree('subete-no', [])]), SynTree(NP[], [SynTree(NBar[], [SynTree(AdjP[PARTICLE='none', TENSE='pres', TYPE='i'], [SynTree(AdjBar[PARTICLE='none', TENSE='pres', TYPE='i'], [SynTree(Adj[TENSE='pres', TYPE='i'], [SynTree('ureshii', [])])])]), SynTree(NBar[], [SynTree(N[], [SynTree('nouka', [])])])])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(TP[TENSE='pres'], [SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(AdjP[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(AdjBar[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(Adj[TYPE='na'], [SynTree('nigiyaka', [])])])]), SynTree(V[SUBCAT='copula', TENSE='pres'], [SynTree('desu', [])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[-PropN, -TRACE], [SynTree('subete-no', [])]), SynTree(NP[], [SynTree(NBar[], [SynTree(AdjP[PARTICLE='none', TENSE='pres', TYPE='i'], [SynTree(AdjBar[PARTICLE='none', TENSE='pres', TYPE='i'], [SynTree(Adj[TENSE='pres', TYPE='i'], [SynTree('ureshii', [])])])]), SynTree(NBar[], [SynTree(N[], [SynTree('nouka', [])])])])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(PA[TENSE='pres'], [SynTree(15, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', +TRACE], [SynTree(t15, [])]), SynTree(TP[TENSE='pres'], [SynTree(x28, []), SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(AdjP[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(AdjBar[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(Adj[TYPE='na'], [SynTree('nigiyaka', [])])])]), SynTree(V[SUBCAT='copula', TENSE='pres'], [SynTree('desu', [])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+all x15.((HAPPY(x15) & FARMER(x15)) -> BUSY(x15))
+
+NL LOGIC INTERPRETATION
+EVERY x15 | (HAPPY(x15) & FARMER(x15)) . BUSY(x15)
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(DBar[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(D[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree('EVERY', [])]), SynTree(NP[NUM=?n], [SynTree(NBar[NUM=?n], [SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'HAPPY', [])])])]), SynTree(NBar[NUM=?n], [SynTree(N[NUM=?n], [SynTree(u'FARMER', [])])])])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='link', TENSE=?t], [SynTree('BE', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'BUSY', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+every happy farmer is busy
+

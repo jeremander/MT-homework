@@ -1,0 +1,22 @@
+
+INPUT JAPANESE SENTENCE
+watashi wa okureteimasu
+
+JAPANESE PARSE TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('watashi', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(TP[TENSE='pres'], [SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(V[SUBCAT='intrans', TENSE='pres'], [SynTree('okureteimasu', [])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('watashi', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(PA[TENSE='pres'], [SynTree(6, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', +TRACE], [SynTree(t6, [])]), SynTree(TP[TENSE='pres'], [SynTree(x15, []), SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(V[SUBCAT='intrans', TENSE='pres'], [SynTree('okureteimasu', [])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+LATE(ME)
+
+NL LOGIC INTERPRETATION
+ME z8 . LATE(z8)
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'ME', [])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='link', TENSE=?t], [SynTree('BE', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'LATE', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+I am late
+

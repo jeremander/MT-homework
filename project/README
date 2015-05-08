@@ -1,0 +1,37 @@
+HOLI QUAIL: Higher-Order Logic Quantificational Interlingua
+
+-----------------------
+
+Source files:
+
+english.fcfg: CFG for English
+japanese.fcfg: CFG for Japanese
+tree.py: Data structure for representing and drawing trees
+lexicon.py: Specifies the words in the lexicon of Japanese and English (currently very small)
+sem.py: The main routines of HOLI QUAIL
+
+-----------------------
+
+User-end scripts:
+
+jap2eng.py: Script for translating simple sentences from Japanese to English, with words limited to the lexicon.
+Example usage:
+python jap2eng.py "watashi wa ureshii desu" -v -o ureshii_
+(This saves tree diagrams to files of the form "ureshii_i.png"
+
+eng2eng.py: Script for translating simple sentences from English to English, with words limited to the lexicon. That is, it translates English into the HOL interlingua, and then back to English, so that the logical interpretation and tree diagrams can be analyzed.
+Example usage:
+python eng2eng.py "I am happy" -v -o happy_
+(This saves tree diagrams to files of the form "happy_i.png")
+
+Feel free to play around with various sentences comprised of words in the lexicon!
+
+-----------------------
+
+Directories:
+
+proposal/: The original project proposal.
+interim/: The interim report.
+final/: The final report.
+results/: A collection of text outputs and tree diagrams for various sentences translated by jap2eng.py and eng2eng.py. They demonstrate various levels of complexity of sentence structure. Most of them just show the first possible output from the generator, which may in general produce numerous translations.
+

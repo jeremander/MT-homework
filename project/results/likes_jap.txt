@@ -1,0 +1,22 @@
+
+INPUT JAPANESE SENTENCE
+John wa Mary ga suki desu
+
+JAPANESE PARSE TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('John', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='ga', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('Mary', [])])])]), SynTree(Ptcl[PARTICLE='ga'], [SynTree('ga', [])])]), SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(AdjP[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(AdjBar[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(Adj[TYPE='na'], [SynTree('suki', [])])])]), SynTree(V[SUBCAT='copula', TENSE='pres'], [SynTree('desu', [])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('John', [])])])]), SynTree(Ptcl[PARTICLE='wa'], [SynTree('wa', [])])]), SynTree(PA[TENSE='pres'], [SynTree(6, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='ga', -TRACE], [SynTree(DP[PARTICLE='none', -TRACE], [SynTree(DBar[-TRACE], [SynTree(D[+PropN, -TRACE], [SynTree('Mary', [])])])]), SynTree(Ptcl[PARTICLE='ga'], [SynTree('ga', [])])]), SynTree(PA[TENSE='pres'], [SynTree(14, []), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='wa', +TRACE], [SynTree(t6, [])]), SynTree(TP[TENSE='pres'], [SynTree(DP[PARTICLE='ga', +TRACE], [SynTree(t14, [])]), SynTree(TBar[TENSE='pres'], [SynTree(VP[TENSE='pres'], [SynTree(VBar[TENSE='pres'], [SynTree(AdjP[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(AdjBar[PARTICLE='none', TENSE=?t, TYPE='na'], [SynTree(Adj[TYPE='na'], [SynTree('suki', [])])])]), SynTree(V[SUBCAT='copula', TENSE='pres'], [SynTree('desu', [])])])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+LIKE(MARY,JOHN)
+
+NL LOGIC INTERPRETATION
+JOHN z8 . (MARY z9 . LIKE(z9,z8))
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'JOHN', [])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='trans', TENSE=?t], [SynTree(u'LIKE', [])]), SynTree(DP[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(DBar[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(D[NUM='sg', PERSON=?p, +PropN, -TRACE], [SynTree(u'MARY', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+John likes Mary
+

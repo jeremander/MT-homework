@@ -1,0 +1,64 @@
+% start TP
+
+# ###################
+# Grammar Productions
+# ###################
+
+# TP expansion productions
+TP[TENSE=?t] -> DP[PARTICLE=wa] TP[TENSE=?t]
+TP[TENSE=?t] -> DP[PARTICLE=ga] TBar[TENSE=?t]
+TP[TENSE=?t] -> TBar[TENSE=?t]
+TBar[TENSE=?t] -> VP[TENSE=?t]
+
+# VP expansion productions
+VP[TENSE=?t] -> VBar[TENSE=?t]
+VBar[TENSE=?t] -> DP[PARTICLE=wo] V[TENSE=?t, SUBCAT=trans]
+VBar[TENSE=?t] -> V[TENSE=?t, SUBCAT=intrans]
+VBar[TENSE=pres] -> AdjP[TENSE=pres, PARTICLE=none] V[TENSE=pres, SUBCAT=copula]
+VBar[TENSE=past] -> AdjP[TENSE=past, TYPE=i, PARTICLE=none] V[TENSE=pres, SUBCAT=copula]
+VBar[TENSE=past] -> AdjP[TYPE=na, PARTICLE=none] V[TENSE=past, SUBCAT=copula]
+VBar[TENSE=?t] -> DP[PARTICLE=none] V[TENSE=?t, SUBCAT=copula] 
+
+# DP expansion productions
+DP[PARTICLE=none, TRACE=?t] -> DP[PARTICLE=no] DBar[TRACE=?t]
+DP[PARTICLE=?p, TRACE=?t] -> DP[PARTICLE=none, TRACE=?t] Ptcl[PARTICLE=?p]
+DP[PARTICLE=none, TRACE=?t] -> DBar[TRACE=?t]
+DBar[TRACE=False] -> D[-PropN] NP
+DBar[TRACE=?t] -> D[+PropN, TRACE=?t]
+DBar[TRACE=False] -> NP
+
+# NP expansion productions
+NP -> NBar
+NBar -> AdjP[TYPE=na, PARTICLE=na] NBar
+NBar -> AdjP[TYPE=i, PARTICLE=none] NBar
+NBar -> N
+
+# AdjP expansion productions (no adverbs yet)
+AdjP[TENSE=?t, TYPE=na, PARTICLE=na] -> AdjP[TENSE=?t, TYPE=na, PARTICLE=none] Ptcl[PARTICLE=na]
+AdjP[TENSE=?t, TYPE=?p, PARTICLE=none] -> AdjBar[TENSE=?t, TYPE=?p]
+AdjBar[TENSE=?t, TYPE=?p, PARTICLE=none] -> Adj[TENSE=?t, TYPE=?p]
+
+####################
+# Lexical Productions
+####################
+D[+PropN, TRACE=False] -> 'watashi'
+D[+PropN, TRACE=False] -> 'John' | 'Mary'
+D[-PropN, TRACE=False] -> '*the*' | '*a*' | 'kono' | 'subete-no'
+V[TENSE=pres, SUBCAT=intrans] -> 'hashirimasu' | 'yorokobimasu' | 'utaimasu' | 'nemasu' | 'okureteimasu'
+V[TENSE=pres, SUBCAT=trans] -> 'miteimasu' | 'motteimasu'
+V[TENSE=pres, SUBCAT=copula] -> 'desu'
+V[TENSE=past, SUBCAT=intrans] -> 'hashirimashita' | 'yorokobimashita' | 'utaimashita' | 'nemashita' | 'okuremashita'
+V[TENSE=past, SUBCAT=trans] -> 'mimashita' | 'motteimashita'
+V[TENSE=past, SUBCAT=copula] -> 'deshita'
+N -> 'nouka' | 'roba' | 'hana'
+Adj[TENSE=pres, TYPE=i] -> 'ureshii' | 
+Adj[TENSE=past, TYPE=i] -> 'ureshikatta' |
+Adj[TYPE=na] -> 'suki' | 'genki' | 'nigiyaka'
+Ptcl[PARTICLE=wa] -> 'wa'
+Ptcl[PARTICLE=ga] -> 'ga'
+Ptcl[PARTICLE=wo] -> 'wo'
+Ptcl[PARTICLE=na] -> 'na'
+Ptcl[PARTICLE=no] -> 'no'
+
+
+

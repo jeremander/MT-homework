@@ -1,0 +1,61 @@
+% start TP
+
+# ###################
+# Grammar Productions
+# ###################
+
+# TP expansion productions
+TP[TENSE=?t, NUM=?n, PERSON=?p] -> DP[NUM=?n, PERSON=?p] TBar[TENSE=?t, NUM=?n, PERSON=?p]
+TBar[TENSE=?t, NUM=?n, PERSON=?p] -> T[TENSE=?t, NUM=?n, PERSON=?p, +AUX] VP[]
+TBar[TENSE=?t, NUM=?n, PERSON=?p] -> VP[TENSE=?t, NUM=?n, PERSON=?p]
+
+# VP expansion productions
+VP[TENSE=?t, NUM=?n, PERSON=?p] -> VBar[TENSE=?t, NUM=?n, PERSON=?p]
+VBar[TENSE=?t, NUM=?n, PERSON=?p] -> V[TENSE=?t, NUM=?n, PERSON=?p, SUBCAT=trans] DP
+VBar[TENSE=?t, NUM=?n, PERSON=?p] -> V[TENSE=?t, NUM=?n, PERSON=?p, SUBCAT=intrans]
+VBar[TENSE=?t, NUM=?n, PERSON=?p] -> V[TENSE=?t, NUM=?n, PERSON=?p, SUBCAT=link] AdjP
+VBar[TENSE=?t, NUM=?n, PERSON=?p] -> V[TENSE=?t, NUM=?n, PERSON=?p, SUBCAT=link] DP[NUM=?n]
+
+# DP expansion productions
+DP[NUM=?n, PERSON=?p, TRACE=?t] -> DP DBar[NUM=?n, PERSON=?p, TRACE=?t]
+DP[NUM=?n, PERSON=?p, TRACE=?t] -> DBar[NUM=?n, PERSON=?p, TRACE=?t]
+DBar[NUM=?n, PERSON=?p, TRACE=?t, -PropN] -> D[NUM=?n, PERSON=?p, TRACE=?t, -PropN] NP[NUM=?n]
+# DBar[NUM=pl, PERSON=?p, -PropN, TRACE=False] -> NP[NUM=pl, PERSON=?p]
+DBar[NUM=?n, PERSON=?p, +PropN, TRACE=?t] -> D[NUM=?n, PERSON=?p, TRACE=?t, +PropN]
+
+# NP expansion productions
+NP[NUM=?n] -> NBar[NUM=?n]
+NBar[NUM=?n] -> AdjP NBar[NUM=?n]
+NBar[NUM=?n] -> N[NUM=?n]
+
+# AdjP expansion productions (no adverbs yet)
+AdjP -> AdjBar
+AdjBar -> Adj
+
+####################
+# Lexical Productions
+####################
+D[NUM=sg, PERSON=1, TRACE=False, +PropN] -> 'I'
+D[NUM=sg, PERSON=3, TRACE=False, +PropN] -> 'John' | 'Mary'
+D[NUM=sg, PERSON=3, TRACE=False, -PropN] -> 'the' | 'a' | 'this' | 'every' | 'no'
+D[NUM=pl, PERSON=3, TRACE=False, -PropN] -> 'all' | 'most'
+V[TENSE=pres, NUM=sg, PERSON=1, SUBCAT=intrans] -> 'run' | 'rejoice' | 'sing' | 'sleep'
+V[TENSE=pres, NUM=sg, PERSON=3, SUBCAT=intrans] -> 'runs' | 'rejoices' | 'sings' | 'sleeps'
+V[TENSE=pres, NUM=pl, SUBCAT=intrans] -> 'run' | 'rejoice' | 'sing' | 'sleep'
+V[TENSE=pres, NUM=sg, PERSON=1, SUBCAT=trans] -> 'see' | 'like' | 'have'
+V[TENSE=pres, NUM=sg, PERSON=3, SUBCAT=trans] -> 'sees' | 'likes' | 'has'
+V[TENSE=pres, NUM=pl, SUBCAT=trans] -> 'see' | 'like' | 'have'
+V[TENSE=pres, NUM=sg, PERSON=1, SUBCAT=link] -> 'am'
+V[TENSE=pres, NUM=sg, PERSON=3, SUBCAT=link] -> 'is' 
+V[TENSE=pres, NUM=pl, SUBCAT=link] -> 'are' 
+V[TENSE=past, SUBCAT=intrans] -> 'ran' | 'rejoiced' | 'sang' | 'slept' 
+V[TENSE=past, SUBCAT=trans] -> 'saw' | 'liked' | 'had'
+V[TENSE=past, NUM=sg, PERSON=1, SUBCAT=link] -> 'was'
+V[TENSE=past, NUM=sg, PERSON=3, SUBCAT=link] -> 'was'
+V[TENSE=past, NUM=pl, SUBCAT=link] -> 'were'
+N[NUM=sg] -> 'farmer' | 'donkey' | 'flower' | 'nose'
+N[NUM=pl] -> 'farmers' | 'donkeys' | 'flowers' | 'noses'
+Adj -> 'happy' | 'healthy' | 'busy' | 'late'
+
+
+

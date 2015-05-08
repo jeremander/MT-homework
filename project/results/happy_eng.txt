@@ -1,0 +1,22 @@
+
+INPUT ENGLISH SENTENCE
+all happy farmers are busy
+
+ENGLISH PARSE TREE
+SynTree(TP[NUM='pl', PERSON=3, TENSE='pres'], [SynTree(DP[NUM='pl', PERSON=3, -TRACE], [SynTree(DBar[NUM='pl', PERSON=3, -PropN, -TRACE], [SynTree(D[NUM='pl', PERSON=3, -PropN, -TRACE], [SynTree('all', [])]), SynTree(NP[NUM='pl'], [SynTree(NBar[NUM='pl'], [SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('happy', [])])])]), SynTree(NBar[NUM='pl'], [SynTree(N[NUM='pl'], [SynTree('farmers', [])])])])])])]), SynTree(TBar[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(VP[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(VBar[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(V[NUM='pl', SUBCAT='link', TENSE='pres'], [SynTree('are', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('busy', [])])])])])])])])
+
+POST-MOVEMENT TREE
+SynTree(TP[NUM='pl', PERSON=3, TENSE='pres'], [SynTree(DP[NUM='pl', PERSON=3, -TRACE], [SynTree(DBar[NUM='pl', PERSON=3, -PropN, -TRACE], [SynTree(D[NUM='pl', PERSON=3, -PropN, -TRACE], [SynTree('all', [])]), SynTree(NP[NUM='pl'], [SynTree(NBar[NUM='pl'], [SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('happy', [])])])]), SynTree(NBar[NUM='pl'], [SynTree(N[NUM='pl'], [SynTree('farmers', [])])])])])])]), SynTree(PA[NUM='pl', PERSON=3, TENSE='pres'], [SynTree(12, []), SynTree(TP[NUM='pl', PERSON=3, TENSE='pres'], [SynTree(DP[NUM='pl', PERSON=3, +TRACE], [SynTree(t12, [])]), SynTree(TBar[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(VP[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(VBar[NUM='pl', PERSON=?p, TENSE='pres'], [SynTree(V[NUM='pl', SUBCAT='link', TENSE='pres'], [SynTree('are', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree('busy', [])])])])])])])])])])
+
+HIGHER-ORDER LOGIC INTERPRETATION
+all x12.((HAPPY(x12) & FARMER(x12)) -> BUSY(x12))
+
+NL LOGIC INTERPRETATION
+EVERY x12 | (HAPPY(x12) & FARMER(x12)) . BUSY(x12)
+
+OUTPUT ENGLISH TREE (NO MORPHOLOGY)
+SynTree(TP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(DP[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(DBar[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree(D[NUM=?n, PERSON=?p, -PropN, -TRACE], [SynTree('EVERY', [])]), SynTree(NP[NUM=?n], [SynTree(NBar[NUM=?n], [SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'HAPPY', [])])])]), SynTree(NBar[NUM=?n], [SynTree(N[NUM=?n], [SynTree(u'FARMER', [])])])])])])]), SynTree(TBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VP[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(VBar[NUM=?n, PERSON=?p, TENSE=?t], [SynTree(V[NUM=?n, PERSON=?p, SUBCAT='link', TENSE=?t], [SynTree('BE', [])]), SynTree(AdjP[], [SynTree(AdjBar[], [SynTree(Adj[], [SynTree(u'BUSY', [])])])])])])])])
+
+OUTPUT ENGLISH SENTENCE
+all happy farmers are busy
+
